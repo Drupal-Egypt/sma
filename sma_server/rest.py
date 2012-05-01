@@ -14,8 +14,10 @@ class PostResource(object):
                      }
 
     @staticmethod
-    def _import(item):
-        return Post(title=item ['title'],  body=item ['body'])
+    def _import(item,  post = Post()):
+        post.title = item ['title']
+        post.body = item ['body']
+        return post
 
     @cherrypy.expose
     @cherrypy.tools.json_in()
@@ -26,8 +28,20 @@ class PostResource(object):
     @cherrypy.expose
     @cherrypy.tools.json_in()
     @cherrypy.tools.json_out()
-    def PUT(self):
+    def POST(self):
         posts = list(map(self._import,  cherrypy.request.json))
         for post in posts:
             post.save() 
+        return [[self._export(post)] for post in posts]
+        
+    @cherrypy.expose
+    @cherrypy.tools.json_in()
+    @cherrypy.tools.json_out()
+    def PUT(self):
+        posts = []
+        for item in cherrypy.request.json:
+            post = Post.getObjects().findById(item['_id'])
+            post = self._import(item,  post)
+            post.save()
+            posts += [post]
         return [[self._export(post)] for post in posts]
