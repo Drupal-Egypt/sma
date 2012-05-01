@@ -1,9 +1,29 @@
-from mompy import mompy as mompyorm
+from mompy.mompy import *
 
-class DBObject(mompyorm.DBObject):
+class BaseObject(DBObject):
+    def __init__(self, *args,**kw):
+        if args:
+            args[0].update(dict(list(self._default().items()) + list(args[0].items())))
+        if kw:
+            kw = dict(list(self._default().items()) + list(kw.items()))
+        DBObject.__init__(self,*args,**kw)
+
     def getId(self):
         return str(self["_id"])
 
-class Post(DBObject):
-    title = mompyorm.StringField(max_length=120, required=True)
-    body = mompyorm.StringField()
+    @staticmethod
+    def _default():
+        return {}
+
+class Post(BaseObject):
+    title = StringField(max_length=120, required=True)
+    body = StringField()
+    created = DatetimeField()
+
+    @staticmethod
+    def _default():
+        return {
+                'title': '', 
+                'body': '', 
+                'created':  datetime.datetime.now(), 
+                }

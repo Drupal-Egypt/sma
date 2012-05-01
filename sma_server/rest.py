@@ -1,33 +1,33 @@
-import cherrypy
-import json
+import cherrypy,  json
 from orm import *
 
 class PostResource(object):
     exposed = True
     
     @staticmethod
-    def export(post):
+    def _export(post):
         return {
                      '_id': post.getId(), 
                      'title': post.title, 
-                     'body': post.body
+                     'body': post.body, 
+                     'created': post.created.strftime('%Y-%m-%dT%H:%M:%S'), 
                      }
+
+    @staticmethod
+    def _import(item):
+        return Post(title=item ['title'],  body=item ['body'])
 
     @cherrypy.expose
     @cherrypy.tools.json_in()
     @cherrypy.tools.json_out()
     def GET(self):
-        ret = []
-        for post in Post.getObjects():
-            ret += [self.export(post)]
-        return ret
-
+        return [[self._export(post)] for post in Post.getObjects()]
+        
     @cherrypy.expose
     @cherrypy.tools.json_in()
     @cherrypy.tools.json_out()
     def PUT(self):
-        content = cherrypy.request.json
-        post = Post(title=content ['title'])
-        post.body = content ['body']
-        post.save()
-        return [self.export(post)]
+        posts = list(map(self._import,  cherrypy.request.json))
+        for post in posts:
+            post.save() 
+        return [[self._export(post)] for post in posts]
