@@ -18,30 +18,41 @@ class PostResource(object):
         post.title = item ['title']
         post.body = item ['body']
         return post
-
+        
     @cherrypy.expose
     @cherrypy.tools.json_in()
     @cherrypy.tools.json_out()
-    def GET(self):
-        return [[self._export(post)] for post in Post.getObjects()]
+    def GET(self,  _id =  None):
+        if _id:
+            return self._export(Post.getObjects().findById(_id))
+        else:
+            return [[self._export(post)] for post in Post.getObjects()]
+
         
     @cherrypy.expose
     @cherrypy.tools.json_in()
     @cherrypy.tools.json_out()
     def POST(self):
-        posts = list(map(self._import,  cherrypy.request.json))
-        for post in posts:
-            post.save() 
-        return [[self._export(post)] for post in posts]
+        item = cherrypy.request.json
+        post = self._import(item)
+        post.save()
+        return self._export(post)
         
     @cherrypy.expose
     @cherrypy.tools.json_in()
     @cherrypy.tools.json_out()
-    def PUT(self):
-        posts = []
-        for item in cherrypy.request.json:
-            post = Post.getObjects().findById(item['_id'])
-            post = self._import(item,  post)
-            post.save()
-            posts += [post]
-        return [[self._export(post)] for post in posts]
+    def PUT(self,  _id):
+        item = cherrypy.request.json
+        post = Post.getObjects().findById(_id)
+        post = self._import(item,  post)
+        post.save()
+        return self._export(post)
+
+    @cherrypy.expose
+    @cherrypy.tools.json_in()
+    @cherrypy.tools.json_out()
+    def DELETE(self,  _id):
+        post = Post.getObjects().findById(_id)
+        post.save()
+        post.delete()
+        return [{'_id': _id}]
