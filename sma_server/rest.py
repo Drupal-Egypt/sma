@@ -14,7 +14,9 @@ class PostResource(object):
                      }
 
     @staticmethod
-    def _import(item,  post = Post()):
+    def _import(item,  post = None):
+        if not post:
+            post = Post()
         post.title = item ['title']
         post.body = item ['body']
         return post
@@ -22,11 +24,15 @@ class PostResource(object):
     @cherrypy.expose
     @cherrypy.tools.json_in()
     @cherrypy.tools.json_out()
-    def GET(self,  _id =  None):
-        if _id:
-            return self._export(Post.getObjects().findById(_id))
+    def GET(self,  *path, **params):
+        if path:
+            return self._export(Post.getObjects().findById(path[0]))
         else:
-            return [[self._export(post)] for post in Post.getObjects()]
+            if params['view'] == 'all':
+                return [self._export(post) for post in Post.getObjects()]
+            if params['view'] == 'recent':
+                dt = datetime.datetime.strptime(params['datetime'],  '%Y-%m-%dT%H:%M:%S')
+                return [self._export(post) for post in Post.getObjects().find(created ={"$gte": dt})]
 
         
     @cherrypy.expose
