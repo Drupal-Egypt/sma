@@ -13,7 +13,7 @@ root.post = PostResource()
 conf = {
     'global': {
         'server.socket_host': '127.0.0.1',
-        'server.socket_port': 9091,
+        'server.socket_port': 9090,
     },
     '/': {
         'request.dispatch': cherrypy.dispatch.MethodDispatcher(),

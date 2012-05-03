@@ -1,4 +1,5 @@
 import cherrypy,  json
+from tools import *
 from orm import *
 
 class PostResource(object):
@@ -24,11 +25,12 @@ class PostResource(object):
     @cherrypy.expose
     @cherrypy.tools.json_in()
     @cherrypy.tools.json_out()
+    @cherrypy.tools.CORS()
     def GET(self,  *path, **params):
         if path:
             return self._export(Post.getObjects().findById(path[0]))
         else:
-            if params['view'] == 'all':
+            if not params or params['view'] == 'all':
                 return [self._export(post) for post in Post.getObjects()]
             if params['view'] == 'recent':
                 dt = datetime.datetime.strptime(params['datetime'],  '%Y-%m-%dT%H:%M:%S')
@@ -38,7 +40,9 @@ class PostResource(object):
     @cherrypy.expose
     @cherrypy.tools.json_in()
     @cherrypy.tools.json_out()
+    @cherrypy.tools.CORS()
     def POST(self):
+        print ("!!!")
         item = cherrypy.request.json
         post = self._import(item)
         post.save()
@@ -47,6 +51,7 @@ class PostResource(object):
     @cherrypy.expose
     @cherrypy.tools.json_in()
     @cherrypy.tools.json_out()
+    @cherrypy.tools.CORS()
     def PUT(self,  _id):
         item = cherrypy.request.json
         post = Post.getObjects().findById(_id)
@@ -57,8 +62,15 @@ class PostResource(object):
     @cherrypy.expose
     @cherrypy.tools.json_in()
     @cherrypy.tools.json_out()
+    @cherrypy.tools.CORS()
     def DELETE(self,  _id):
         post = Post.getObjects().findById(_id)
         post.save()
         post.delete()
         return [{'_id': _id}]
+
+    @cherrypy.expose
+    @cherrypy.tools.CORS()
+    def OPTIONS(self):
+        pass
+        
