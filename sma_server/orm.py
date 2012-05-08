@@ -1,11 +1,6 @@
-import sys
-import pymongo
-import bson.objectid
-import bson.dbref
-pymongo.objectid = bson.objectid
-pymongo.dbref = bson.dbref
-sys.modules["pymongo.objectid"] = bson.objectid
-sys.modules["pymongo.dbref"] = bson.dbref
+import sys, pymongo, bson.objectid, bson.dbref
+sys.modules["pymongo.objectid"] = pymongo.objectid = bson.objectid
+sys.modules["pymongo.dbref"] = pymongo.dbref = bson.dbref
 
 from mompy.mompy import *
 
