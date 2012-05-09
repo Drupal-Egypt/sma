@@ -28,7 +28,9 @@ var PostListView = Backbone.View.extend({
   },
  
   render: function () {
+    $(this.el).empty();
     _.each(this.model.models, this.append, this);
+    $(this.el).listview('refresh');
     return this;
   },
   
