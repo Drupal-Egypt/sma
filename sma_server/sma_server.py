@@ -12,7 +12,7 @@ root.post = PostResource()
 
 conf = {
     'global': {
-        'server.socket_host': '127.0.0.1',
+        'server.socket_host': '0.0.0.0',
         'server.socket_port': 9090,
     },
     '/': {
