@@ -18,7 +18,7 @@ var PostDetailsPageView = Backbone.View.extend({
 
   render: function (eventName) {
     $(this.el).html(this.template(this.model.toJSON()));
-    this.postDetailsView = new PostDetailsView({el: $('[data-role="content"]', this.el), model: this.model});
+    this.postDetailsView = new PostDetailsView({el: $('.post-details', this.el), model: this.model});
     return this;
   }
 });
