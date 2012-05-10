@@ -1,20 +1,25 @@
 var AppRouter = Backbone.Router.extend({
   routes: {
-    "": "posts",
-    "posts": "posts",
-    "posts/:id": "post",
+    "": "postList",
+    "post/list": "postList",
+    "post/add": "postAdd",
+    "post/details/:id": "postDetails",
   },
 
-  posts: function() {
+  postList: function() {
     this.postList = new PostList();
     this.changePage(new PostListPageView({model: this.postList}));
     this.postList.fetch();
   },
 
-  post: function(id) {
+  postDetails: function(id) {
     this.post = new Post({id: id});
     this.changePage(new PostDetailsPageView({model: this.post}));
     this.post.fetch();
+  },
+  
+  postAdd: function() {
+    this.changePage(new PostAddPageView());
   },
 
   changePage: function (page) {
@@ -32,19 +37,9 @@ var AppRouter = Backbone.Router.extend({
 });
 
 $(document).ready(function () {
-  tpl.loadTemplates(['post-list-item', 'post-list-page', 'post-details', 'post-details-page'], function() {
+  tpl.loadTemplates(['post-list-item', 'post-list-page', 'post-details',
+                     'post-details-page', 'post-add-page'], function() {
     app = new AppRouter();
     Backbone.history.start();
   });
 });
-
-
-/*
-  var post = new Post({
-  title: "Hey! This is mobile post!",
-    body: "YAHAAAA!"
-  });
-   
-  post.save();
-  console.log(post);
-*/
