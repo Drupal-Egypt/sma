@@ -1,0 +1,22 @@
+<div data-role="header">
+  <h1>Settings</h1>
+  <a href="#"  data-theme="a">Home</a>
+  <a href="#" data-theme="a">Help</a>
+</div>
+
+<div data-role="content">
+  <label>Server URL:</label>
+  <input id="server-url" name="server-url" type="text" value="<%= serverURL %>">
+
+  <a href="#" name="save-settings" id="save-settings" data-role="button">Save</a>
+</div>
+
+<div data-role="footer" data-position="fixed">
+  <div data-role="navbar" data-theme="a">
+    <ul>
+      <li><a href="#post/list" id="list-button" data-icon="custom">View Posts</a></li>
+      <li><a href="#post/add" id="add-button" data-icon="custom">Add Post</a></li>
+      <li><a href="#settings" id="settings-button" data-icon="custom" class="ui-btn-active">Settings</a></li>
+    </ul>
+  </div>
+</div>

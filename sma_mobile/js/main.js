@@ -4,6 +4,7 @@ var AppRouter = Backbone.Router.extend({
     "post/list": "postList",
     "post/add": "postAdd",
     "post/details/:id": "postDetails",
+    "settings": "settings",
   },
 
   postList: function() {
@@ -21,6 +22,10 @@ var AppRouter = Backbone.Router.extend({
   postAdd: function() {
     this.changePage(new PostAddPageView());
   },
+  
+  settings: function() {
+    this.changePage(new SettingsPageView());
+  },
 
   changePage: function (page) {
     $(page.el).attr('data-role', 'page');
@@ -37,8 +42,10 @@ var AppRouter = Backbone.Router.extend({
 });
 
 $(document).ready(function () {
-  tpl.loadTemplates(['post-list-item', 'post-list-page', 'post-details',
-                     'post-details-page', 'post-add-page'], function() {
+  tpl.loadTemplates([
+                     'post-list-item', 'post-list-page', 'post-details',
+                     'post-details-page', 'post-add-page', 'settings-page'
+                    ], function() {
     app = new AppRouter();
     Backbone.history.start();
   });

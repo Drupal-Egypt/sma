@@ -15,8 +15,6 @@ var PostAddPageView = Backbone.View.extend({
   },
   
   addPost: function() {
-    console.log('title: ' + this.title.val());
-    console.log('body: ' + this.body.val());
     if (!this.title.val() || !this.body.val()) {
       return false;
     }
@@ -26,5 +24,6 @@ var PostAddPageView = Backbone.View.extend({
       body: this.body.val(),
     });
     post.save();
+    return post;
   }
 });

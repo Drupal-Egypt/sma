@@ -5,11 +5,17 @@ var Post = Backbone.Model.extend({
     body: "",
     created: "",
   },
-  urlRoot: appConfig.serverURL + "post/"
+  urlRoot: function() {
+    console.log(appConfig.serverURL);
+    return appConfig.serverURL + "post/";
+  }
 });
 
 
 var PostList = Backbone.Collection.extend({
     model: Post,
-    url: appConfig.serverURL + "post/"
+    url: function() {
+      console.log(appConfig.serverURL);
+      return appConfig.serverURL + "post/";
+    }
 });
