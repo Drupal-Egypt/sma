@@ -35,10 +35,10 @@ var AppRouter = Backbone.Router.extend({
     // We don't want to slide the first page
     if (this.firstPage) {
       transition = 'none';
-        this.firstPage = false;
+      this.firstPage = false;
     }
     $.mobile.changePage($(page.el), {changeHash:false, transition: transition});
-    }
+  }
 });
 
 $(document).ready(function () {
