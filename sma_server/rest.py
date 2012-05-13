@@ -30,9 +30,9 @@ class PostResource(object):
         if path:
             return self._export(Post.getObjects().findById(path[0]))
         else:
-            if not params or params['view'] == 'all':
+            if not 'view' in params or ('view' in params and params['view'] == 'all'):
                 return [self._export(post) for post in Post.getObjects()]
-            if params['view'] == 'recent':
+            if 'view' in params  and params['view'] == 'recent':
                 dt = datetime.datetime.strptime(params['datetime'],  '%Y-%m-%dT%H:%M:%S')
                 return [self._export(post) for post in Post.getObjects().find(created ={"$gte": dt})]
 
@@ -42,7 +42,6 @@ class PostResource(object):
     @cherrypy.tools.json_out()
     @cherrypy.tools.CORS()
     def POST(self):
-        print ("!!!")
         item = cherrypy.request.json
         post = self._import(item)
         post.save()
