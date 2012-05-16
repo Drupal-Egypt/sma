@@ -12,7 +12,7 @@ var PostListItemView = Backbone.View.extend({
     return this;
   },
 
-  destroy: function() {
+  remove: function() {
     $(this.el).unbind();
     $(this.el).remove();
   } 
@@ -20,8 +20,6 @@ var PostListItemView = Backbone.View.extend({
 
 
 var PostListView = Backbone.View.extend({
-  tagName: "ul",
-
   initialize: function () {
     this.model.bind("reset", this.render, this);
     this.model.bind("add", this.append, this);

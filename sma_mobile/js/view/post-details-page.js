@@ -1,11 +1,11 @@
-var PostDetailsView = Backbone.View.extend({  
+var PostDetailsView = Backbone.View.extend({
   initialize: function() {
     this.model.bind('change', this.render, this);
     this.template = _.template(tpl.get('post-details'));
   },
   
   render: function() {
-    $(this.el).html(this.template(this.model.toJSON()));
+    $(this.el).html(this.template(this.model.toJSON())).trigger('create');
     return this;
   },
 });

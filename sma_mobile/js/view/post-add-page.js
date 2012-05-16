@@ -1,6 +1,6 @@
 var PostAddPageView = Backbone.View.extend({
   events: {
-    "click #add-post": "addPost",    
+    "click #add-post": "addPost",
   },
 
   initialize: function () {
@@ -23,7 +23,8 @@ var PostAddPageView = Backbone.View.extend({
       title: this.title.val(),
       body: this.body.val(),
     });
+
     post.save();
-    return post;
+    return true;
   }
 });

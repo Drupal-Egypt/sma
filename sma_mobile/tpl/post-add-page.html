@@ -5,12 +5,17 @@
 </div>
 
 <div data-role="content">
-  <label>Title:</label>
-  <input id="post-title" name="post-title" type="text">
   
-  <label>Body:</label>
-  <textarea name="post-body" id="post-body"></textarea>
-  
+  <div data-role="fieldcontain" class="ui-hide-label">
+    <!-- <label for="post-title">Title:</label> //-->
+    <input id="post-title" name="post-title" type="text" placeholder="Title"/>
+  </div>
+
+  <div data-role="fieldcontain" class="ui-hide-label">
+    <!-- <label for="post-body">Body:</label> //-->
+    <textarea name="post-body" id="post-body" placeholder="Body"/></textarea>
+  </div>
+
   <a href="#post/list" name="add-post" id="add-post" data-role="button">Add Post</a>
 </div>
 
