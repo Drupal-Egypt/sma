@@ -27,6 +27,9 @@ tpl = {
 
   // Get template by name from hash of preloaded templates
   get:function (name) {
+    console.log('get template');
+    console.log(name);
+    console.log(this.templates[name].length);
     return this.templates[name];
   }
 };
