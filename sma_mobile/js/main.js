@@ -35,7 +35,7 @@ var AppRouter = Backbone.Router.extend({
   postDeleteRoute: function(id) {
     var post = new Post({_id: id});
     this.showDialog(new PostDeleteDialogView({model: post}));
-    post.fetch();
+    // post.fetch();
   },
   
   settingsRoute: function() {
@@ -57,14 +57,14 @@ var AppRouter = Backbone.Router.extend({
   },
   
   showDialog: function(page) {
-    $(page.el).attr('data-role', 'page');
+    $(page.el).attr('data-role', 'dialog');
     page.render();
     $('body').append($(page.el));
     $.mobile.changePage($(page.el), {
       allowSamePageTransition: true,
       reverse: false,
       changeHash: false,
-      // role: 'dialog',
+      role: 'dialog',
       transition: this.historyCount++ ? $.mobile.defaultDialogTransition : 'none',
     });
   },
