@@ -19,6 +19,7 @@ var SettingsPageView = Backbone.View.extend({
     }
 
     appConfig.serverURL = this.server_url.val();
+    window.history.back();
     return true;
   }
 });

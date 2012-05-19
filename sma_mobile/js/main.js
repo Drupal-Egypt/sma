@@ -1,11 +1,15 @@
 var AppRouter = Backbone.Router.extend({
   routes: {
-    "": "postListRoute",
+    "": "mainRoute",
     "post/list": "postListRoute",
     "post/add": "postAddRoute",
     "post/details/:id": "postDetailsRoute",
     "post/delete/:id": "postDeleteRoute",
     "settings": "settingsRoute",
+  },
+  
+  mainRoute: function() {
+    this.changePage(new MainPageView());
   },
 
   postListRoute: function() {
@@ -67,7 +71,7 @@ $(document).ready(function () {
   tpl.loadTemplates([
                      'post-list-item', 'post-list-page', 'post-details',
                      'post-details-page', 'post-add-page', 'post-delete-dialog',
-                     'settings-page'
+                     'main-page', 'settings-page'
                     ], function() {
     app = new AppRouter();
     Backbone.history.start();
