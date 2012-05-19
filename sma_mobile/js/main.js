@@ -61,9 +61,9 @@ var AppRouter = Backbone.Router.extend({
     page.render();
     $('body').append($(page.el));
     $.mobile.changePage($(page.el), {
-      allowSamePageTransition: true,
+      // allowSamePageTransition: true,
+      // reverse: false,
       changeHash: false,
-      reverse: false,
       role: 'dialog',
       transition: this.historyCount++ ? $.mobile.defaultDialogTransition : 'none',
     });
