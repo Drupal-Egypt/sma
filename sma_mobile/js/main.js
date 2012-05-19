@@ -57,14 +57,14 @@ var AppRouter = Backbone.Router.extend({
   },
   
   showDialog: function(page) {
-    $(page.el).attr('data-role', 'dialog');
+    $(page.el).attr('data-role', 'page');
     page.render();
     $('body').append($(page.el));
     $.mobile.changePage($(page.el), {
-      // allowSamePageTransition: true,
-      // reverse: false,
+      allowSamePageTransition: true,
+      reverse: false,
       changeHash: false,
-      role: 'dialog',
+      // role: 'dialog',
       transition: this.historyCount++ ? $.mobile.defaultDialogTransition : 'none',
     });
   },
