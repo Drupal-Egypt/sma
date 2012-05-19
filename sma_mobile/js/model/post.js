@@ -5,6 +5,7 @@ var Post = Backbone.Model.extend({
     body: "",
     created: "",
   },
+  idAttribute: "_id",
   urlRoot: function() {
     return appConfig.serverURL + "post/";
   }

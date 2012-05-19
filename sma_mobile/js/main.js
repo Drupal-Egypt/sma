@@ -1,36 +1,39 @@
 var AppRouter = Backbone.Router.extend({
   routes: {
-    "": "postList",
-    "post/list": "postList",
-    "post/add": "postAdd",
-    "post/details/:id": "postDetails",
-    "post/delete/:id": "postDelete",
-    "settings": "settings",
+    "": "postListRoute",
+    "post/list": "postListRoute",
+    "post/add": "postAddRoute",
+    "post/details/:id": "postDetailsRoute",
+    "post/delete/:id": "postDeleteRoute",
+    "settings": "settingsRoute",
   },
 
-  postList: function() {
+  postListRoute: function() {
     var postList = new PostList();
     this.changePage(new PostListPageView({model: postList}));
     postList.fetch();
+    setTimeout(function() {
+      postList.fetch();
+    }, 500);
   },
   
-  postAdd: function() {
+  postAddRoute: function() {
     this.changePage(new PostAddPageView());
   },
 
-  postDetails: function(id) {
-    var post = new Post({id: id});
+  postDetailsRoute: function(id) {
+    var post = new Post({_id: id});
     this.changePage(new PostDetailsPageView({model: post}));
     post.fetch();
   },
   
-  postDelete: function(id) {
-    var post = new Post({id: id});
+  postDeleteRoute: function(id) {
+    var post = new Post({_id: id});
     this.showDialog(new PostDeleteDialogView({model: post}));
     post.fetch();
   },
   
-  settings: function() {
+  settingsRoute: function() {
     this.changePage(new SettingsPageView());
   },
 
