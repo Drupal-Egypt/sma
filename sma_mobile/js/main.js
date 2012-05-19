@@ -33,9 +33,10 @@ var AppRouter = Backbone.Router.extend({
   },
   
   postDeleteRoute: function(id) {
+    console.log('postDeleteRoute');
     var post = new Post({_id: id});
     this.showDialog(new PostDeleteDialogView({model: post}));
-    // post.fetch();
+    post.fetch();
   },
   
   settingsRoute: function() {
