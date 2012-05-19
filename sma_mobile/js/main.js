@@ -58,9 +58,13 @@ var AppRouter = Backbone.Router.extend({
   },
   
   showDialog: function(page) {
+    console.log('showDialog: 0');
     $(page.el).attr('data-role', 'dialog');
+    console.log('showDialog: 1');
     page.render();
+    console.log('showDialog: 2');
     $('body').append($(page.el));
+    console.log('showDialog: 3');
     $.mobile.changePage($(page.el), {
       allowSamePageTransition: true,
       reverse: false,
@@ -68,6 +72,7 @@ var AppRouter = Backbone.Router.extend({
       role: 'dialog',
       transition: this.historyCount++ ? $.mobile.defaultDialogTransition : 'none',
     });
+    console.log('showDialog: 4');
   },
 
   historyCount: 0,
