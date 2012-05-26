@@ -10,7 +10,6 @@ tpl = {
 
     var loadTemplate = function (index) {
       var name = names[index];
-      console.log('Loading template: ' + name);
       $.get('tpl/' + name + '.html', function (data) {
         that.templates[name] = data;
         index++;
@@ -20,6 +19,7 @@ tpl = {
           callback();
         }
       });
+      console.log('Loading template: ' + name);
     }
 
     loadTemplate(0);
@@ -27,9 +27,6 @@ tpl = {
 
   // Get template by name from hash of preloaded templates
   get:function (name) {
-    console.log('get template');
-    console.log(name);
-    console.log(this.templates[name].length);
     return this.templates[name];
   }
 };

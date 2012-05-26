@@ -6,7 +6,6 @@ var PostDetailsView = Backbone.View.extend({
   
   render: function() {
     $(this.el).html(this.template(this.model.toJSON())).trigger('create');
-    console.log('DLETE HREF: ' + $('a', this.el).attr('href'));
     return this;
   },
 });
