@@ -1,9 +1,6 @@
+$(document).ready(function () {
 
-(function($){
-
-  $(document).ready(function () {
-
-  	// Create global variable within jQuery object.
+    // Create global variable within jQuery object.
     $.tpl = {}
 
     $('script.template').each(function(index) {
@@ -14,6 +11,5 @@
       // Remove template from DOM.
       $(this).remove();
     });
-  });
 
-})(jQuery);
+});

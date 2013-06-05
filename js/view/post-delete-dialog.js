@@ -5,7 +5,7 @@ var PostDeleteDialogView = Backbone.View.extend({
   },
 
   initialize: function () {
-    this.template = $.tpl['delete-dialog'];
+    this.template = $.tpl['post-delete-dialog'];
   },
 
   render: function (eventName) {
