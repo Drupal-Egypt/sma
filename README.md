@@ -16,6 +16,4 @@ Client side
 
 Server side
 -----------
-*  [CherryPy](http://www.cherrypy.org/)
-*  [MomPy](https://launchpad.net/mompy)
-*  [MongoDB](http://www.mongodb.org/)
+*  [MongoLab](http://mongolab.com/), RESTful MongoDB service
