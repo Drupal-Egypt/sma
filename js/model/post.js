@@ -5,16 +5,22 @@ var Post = Backbone.Model.extend({
     body: "",
     created: "",
   },
+
   idAttribute: "_id",
-  urlRoot: function() {
-    return appConfig.serverURL + "post/";
-  }
+  url: function() {
+    if (_.isUndefined(this.id)) {
+      return appConfig.baseURL + 'invoices' + appConfig.addURL;
+    }
+    else {
+      return appConfig.baseURL + 'invoices/' + encodeURIComponent(this.id) + appConfig.addURL;
+    }
+  },
 });
 
 
 var PostList = Backbone.Collection.extend({
-    model: Post,
-    url: function() {
-      return appConfig.serverURL + "post/";
-    }
+  model: Post,
+  url: function() {
+    return appConfig.baseURL + 'invoices' + appConfig.addURL;
+  }
 });
