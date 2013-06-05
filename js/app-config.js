@@ -1,6 +1,9 @@
 jQuery.support.cors = true;
 jQuery.ajaxSetup({ cache: false });
 
+_.extend(Backbone.Model.prototype, Backbone.MongoModel.mixin);
+
 var appConfig = {
-  serverURL: 'http://' + window.location.host + ':9090/'
+    baseURL: 'https://api.mongolab.com/api/1/databases/billing-app/collections/',
+    addURL: '?apiKey=kNCrqJUqB4n1S_qW7wnXH43NH9XKjdIL'
 }
