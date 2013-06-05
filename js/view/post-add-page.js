@@ -4,7 +4,7 @@ var PostAddPageView = Backbone.View.extend({
   },
 
   initialize: function () {
-    this.template = _.template(tpl.get('post-add-page'));
+    this.template = $.tpl['post-add-page'];
   },
 
   render: function (eventName) {
@@ -13,12 +13,12 @@ var PostAddPageView = Backbone.View.extend({
     this.body = $("#post-body", this.el);
     return this;
   },
-  
+
   addPost: function() {
     if (!this.title.val() || !this.body.val()) {
       return false;
     }
-    
+
     var post = new Post({
       title: this.title.val(),
       body: this.body.val(),

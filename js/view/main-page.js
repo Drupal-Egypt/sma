@@ -1,6 +1,6 @@
 var MainPageView = Backbone.View.extend({
   initialize: function () {
-    this.template = _.template(tpl.get('main-page'));
+    this.template = $.tpl['main-page'];
   },
 
   render: function (eventName) {

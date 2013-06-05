@@ -1,6 +1,6 @@
 var AboutPageView = Backbone.View.extend({
   initialize: function () {
-    this.template = _.template(tpl.get('about-page'));
+    this.template = $.tpl['about-page'];
   },
 
   render: function (eventName) {

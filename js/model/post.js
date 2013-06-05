@@ -1,18 +1,17 @@
 var Post = Backbone.Model.extend({
   defaults: {
-    _id: null,
     title: "",
     body: "",
     created: "",
   },
 
-  idAttribute: "_id",
   url: function() {
-    if (_.isUndefined(this.id)) {
-      return appConfig.baseURL + 'invoices' + appConfig.addURL;
+    console.log(_.clone(this.attributes));
+    if (_.isUndefined(this.attributes.id)) {
+      return appConfig.baseURL + 'posts' + appConfig.addURL;
     }
     else {
-      return appConfig.baseURL + 'invoices/' + encodeURIComponent(this.id) + appConfig.addURL;
+      return appConfig.baseURL + 'posts/' + encodeURIComponent(this.attributes.id) + appConfig.addURL;
     }
   },
 });
@@ -21,6 +20,6 @@ var Post = Backbone.Model.extend({
 var PostList = Backbone.Collection.extend({
   model: Post,
   url: function() {
-    return appConfig.baseURL + 'invoices' + appConfig.addURL;
+    return appConfig.baseURL + 'posts' + appConfig.addURL;
   }
 });

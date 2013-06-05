@@ -1,10 +1,10 @@
 var SettingsPageView = Backbone.View.extend({
   events: {
-    "click #save-settings": "saveSettings",    
+    "click #save-settings": "saveSettings",
   },
 
   initialize: function () {
-    this.template = _.template(tpl.get('settings-page'));
+    this.template = $.tpl['settings-page'];
   },
 
   render: function (eventName) {
@@ -12,7 +12,7 @@ var SettingsPageView = Backbone.View.extend({
     this.server_url = $("#server-url", this.el);
     return this;
   },
-  
+
   saveSettings: function() {
     if (!this.server_url.val()) {
       return false;

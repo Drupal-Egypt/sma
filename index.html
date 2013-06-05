@@ -11,6 +11,7 @@
 
   <!-- Libraries -->
   <script src="lib/jquery-1.7.2.min.js"></script>
+  <script src="js/jqm-config.js"></script> <!-- jQuery Mobile config should be loaded after jQuery and before jQuery Mobile -->
   <script src="lib/jquery.mobile-1.1.0/jquery.mobile-1.1.0.min.js"></script>
   <script src="lib/underscore-min.js"></script>
   <script src="lib/json2.js"></script>
@@ -18,11 +19,10 @@
   <script src="lib/backbone-mongodb.js"></script>
 
   <!-- Config -->
-  <script src="js/jqm-config.js"></script>
   <script src="js/app-config.js"></script>
 
   <!-- SMA -->
-  <script src="js/tools.js"></script>
+  <script src="js/template-loader.js"></script>
   <script src="js/model/post.js"></script>
   <script src="js/view/post-list-page.js"></script>
   <script src="js/view/post-add-page.js"></script>
@@ -32,6 +32,188 @@
   <script src="js/view/settings-page.js"></script>
   <script src="js/view/about-page.js"></script>
   <script src="js/main.js"></script>
+
+    <!-- Templates. -->
+  <script type="text/html" class="template" id="about-page">
+    <div data-role="header">
+      <h1>About</h1>
+      <a href="#"  data-theme="a">Home</a>
+    </div>
+
+    <div data-role="content">
+      <h2>Social Mobile App</h2>
+
+      <p>Social Mobile App is an example application created by <a href="http://vmirgorod.name">Vadim Mirgorod</a> to demonstrate Backbone.js and jQueryMobile capabilities, it communicates with RESTful service written on Python. You can download recent version of both client and server side from <a href="http://github.com/dealancer/sma">github project page</a>. Inspired by <a href="http://coenraets.org/blog/">Christophe Coenraets</a> blog.</p>
+
+      <h2>Technology stack</h2>
+
+      <h3>Client side</h3>
+      <ul>
+        <li><a href="http://documentcloud.github.com/backbone/">Backbone.js</a></li>
+        <li><a href="http://jquerymobile.com/">jQuqeryMobile</a></li>
+        <li><a href="http://taitems.tumblr.com/post/7240874402/ios-inspired-jquery-mobile-theme-jquery-mobile">iOS inpisred</a> jQUery Mobile Theme</li>
+        <li><a href="http://glyphish.com/">Glyphish</a> icons by Joseph Wain</li>
+        <li><a href="http://phonegap.com/">PhoneGap</a></li>
+      </ul>
+
+      <h3>Server side</h3>
+      <ul>
+        <li><a href="http://www.cherrypy.org/">CherryPy</a></li>
+        <li><a href="https://launchpad.net/mompy">MomPy</a></li>
+        <li><a href="http://www.mongodb.org/">MongoDB</a></li>
+      </ul>
+    </div>
+
+    <div data-role="footer" data-position="fixed">
+      <div data-role="navbar" data-theme="a">
+        <ul>
+          <li><a href="#post/list" id="list-button" data-icon="custom">View Posts</a></li>
+          <li><a href="#post/add" id="add-button" data-icon="custom">Add Post</a></li>
+          <li><a href="#settings" id="settings-button" data-icon="custom">Settings</a></li>
+        </ul>
+      </div>
+    </div>
+  </script>
+
+  <script type="text/html" class="template" id="main-page">
+    <div data-role="header">
+      <h1>Social Mobile App</h1>
+    </div>
+
+    <div data-role="content">
+      <ul data-role="listview" data-inset="true">
+        <li><a href="#post/list">View Posts</a></li>
+        <li><a href="#post/add">Add Post</a></li>
+        <li><a href="#settings">Settings</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+
+      <p>Proof of concept app created by <a href="http://vmirgorod.name">Vadim Mirgorod</a>.</p>
+    </div>
+  </script>
+
+  <script type="text/html" class="template" id="post-add-page">
+    <div data-role="header">
+      <h1>Add New Post</h1>
+      <a href="#"  data-theme="a">Home</a>
+      <a href="#about" data-theme="a">About</a>
+    </div>
+
+    <div data-role="content">
+      <div data-role="fieldcontain" class="ui-hide-label">
+        <!-- <label for="post-title">Title:</label> //-->
+        <input id="post-title" name="post-title" type="text" placeholder="Title"/>
+      </div>
+
+      <div data-role="fieldcontain" class="ui-hide-label">
+        <!-- <label for="post-body">Body:</label> //-->
+        <textarea name="post-body" id="post-body" placeholder="Body"/></textarea>
+      </div>
+
+      <a href="#post/list" name="add-post" id="add-post" data-role="button">Add Post</a>
+    </div>
+
+    <div data-role="footer" data-position="fixed">
+      <div data-role="navbar" data-theme="a">
+        <ul>
+          <li><a href="#post/list" id="list-button" data-icon="custom">View Posts</a></li>
+          <li><a href="#post/add" id="add-button" data-icon="custom" class="ui-btn-active">Add Post</a></li>
+          <li><a href="#settings" id="settings-button" data-icon="custom">Settings</a></li>
+        </ul>
+      </div>
+    </div>
+  </script>
+
+  <script type="text/html" class="template" id="post-delete-dialog">
+    <div data-role="content">
+      <a id="delete-post" href="#post/list" data-role="button" data-theme="e">Delete Post</a>
+      <a id="cancel" data-role="button" data-theme="b">Cancel</a>
+    </div>
+  </script>
+
+  <script type="text/html" class="template" id="post-details-page">
+    <div data-role="header">
+      <h1>Post Details</h1>
+      <a href="#post/list" data-rel="back" data-theme="a">Back</a>
+      <a href="#about" data-theme="a">About</a>
+    </div>
+
+    <div data-role="content" class="post-details"></div>
+
+    <div data-role="footer" data-position="fixed">
+      <div data-role="navbar" data-theme="a">
+        <ul>
+          <li><a href="#post/list" id="list-button" data-icon="custom">View Posts</a></li>
+          <li><a href="#post/add" id="add-button" data-icon="custom">Add Post</a></li>
+          <li><a href="#settings" id="settings-button" data-icon="custom">Settings</a></li>
+        </ul>
+      </div>
+    </div>
+  </script>
+
+  <script type="text/html" class="template" id="post-details">
+    <h1><%= title %></h1>
+    <small>Posted on <%= created %>.</small>
+    <p><%= body %></p>
+
+    <a href="#post/delete/<%= id %>" name="delete-post" id="delete-post" data-role="button">Delete Post</a>
+  </script>
+
+  <script type="text/html" class="template" id="post-list-item">
+    <a href="#post/details/<%= id %>">
+    <%= title %><br>
+    <small><%= created %></small>
+    </a>
+  </script>
+
+  <script type="text/html" class="template" id="post-list-page">
+    <div data-role="header">
+      <h1>View Posts</h1>
+      <a href="#"  data-theme="a">Home</a>
+      <a href="#about" data-theme="a">About</a>
+    </div>
+
+    <div data-role="content">
+      <ul data-role="listview"></ul>
+    </div>
+
+    <div data-role="footer" data-position="fixed">
+      <div data-role="navbar" data-theme="a">
+        <ul>
+          <li><a href="#post/list" id="list-button" data-icon="custom" class="ui-btn-active">View Posts</a></li>
+          <li><a href="#post/add" id="add-button" data-icon="custom">Add Post</a></li>
+          <li><a href="#settings" id="settings-button" data-icon="custom">Settings</a></li>
+        </ul>
+      </div>
+    </div>
+  </script>
+
+  <script type="text/html" class="template" id="settings-page">
+    <div data-role="header">
+      <h1>Settings</h1>
+      <a href="#"  data-theme="a">Home</a>
+      <a href="#about" data-theme="a">About</a>
+    </div>
+
+    <div data-role="content">
+      <label>Server URL:</label>
+      <input id="server-url" name="server-url" type="text" value="<%= serverURL %>">
+
+      <a name="save-settings" id="save-settings" data-role="button">Save</a>
+    </div>
+
+    <div data-role="footer" data-position="fixed">
+      <div data-role="navbar" data-theme="a">
+        <ul>
+          <li><a href="#post/list" id="list-button" data-icon="custom">View Posts</a></li>
+          <li><a href="#post/add" id="add-button" data-icon="custom">Add Post</a></li>
+          <li><a href="#settings" id="settings-button" data-icon="custom" class="ui-btn-active">Settings</a></li>
+        </ul>
+      </div>
+    </div>
+  </script>
+
+
 </head>
 
 <body></body>

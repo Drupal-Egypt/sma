@@ -1,12 +1,12 @@
 var PostListItemView = Backbone.View.extend({
   tagName: "li",
-  
+
   initialize: function() {
-    this.template = _.template(tpl.get('post-list-item'));
+    this.template = $.tpl['post-list-item'];
     this.model.bind('change', this.render, this);
     this.model.bind('destroy', this.remove, this);
   },
-  
+
   render: function() {
     $(this.el).html(this.template(this.model.toJSON()));
     return this;
@@ -15,7 +15,7 @@ var PostListItemView = Backbone.View.extend({
   remove: function() {
     $(this.el).unbind();
     $(this.el).remove();
-  } 
+  }
 });
 
 
@@ -24,14 +24,14 @@ var PostListView = Backbone.View.extend({
     this.model.bind("reset", this.render, this);
     this.model.bind("add", this.append, this);
   },
- 
+
   render: function () {
     $(this.el).empty();
     _.each(this.model.models, this.append, this);
     $(this.el).listview('refresh');
     return this;
   },
-  
+
   append: function(post) {
     $(this.el).append(new PostListItemView({model: post}).render().el);
   }
@@ -40,7 +40,7 @@ var PostListView = Backbone.View.extend({
 
 var PostListPageView = Backbone.View.extend({
   initialize: function () {
-    this.template = _.template(tpl.get('post-list-page'));
+    this.template = $.tpl['post-list-page'];
   },
 
   render: function (eventName) {

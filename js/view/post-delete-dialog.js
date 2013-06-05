@@ -1,11 +1,11 @@
 var PostDeleteDialogView = Backbone.View.extend({
   events: {
     "click #delete-post": "deletePost",
-    "click #cancel": "cancel",    
+    "click #cancel": "cancel",
   },
 
   initialize: function () {
-    this.template = _.template(tpl.get('post-delete-dialog'));
+    this.template = $.tpl['delete-dialog'];
   },
 
   render: function (eventName) {
@@ -16,7 +16,7 @@ var PostDeleteDialogView = Backbone.View.extend({
   deletePost: function() {
     this.model.destroy();
   },
-  
+
   cancel: function() {
     window.history.back();
   }

@@ -1,11 +1,11 @@
 $(document).bind("mobileinit", function () {
-    console.log('mobileinit');
     $.mobile.ajaxEnabled = false;
     $.mobile.linkBindingEnabled = false;
     $.mobile.hashListeningEnabled = false;
     $.mobile.pushStateEnabled = false;
 
     var iosDevice = ((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i))) ? true : false;
+    iosDevice = true;
 
     $.extend($.mobile, {
       slideText :  (iosDevice) ? "slide" : "none",
