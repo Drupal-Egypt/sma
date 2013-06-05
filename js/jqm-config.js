@@ -1,21 +1,21 @@
 $(document).bind("mobileinit", function () {
-    $.mobile.ajaxEnabled = false;
-    $.mobile.linkBindingEnabled = false;
-    $.mobile.hashListeningEnabled = false;
-    $.mobile.pushStateEnabled = false;
+  $.mobile.ajaxEnabled = false;
+  $.mobile.linkBindingEnabled = false;
+  $.mobile.hashListeningEnabled = false;
+  $.mobile.pushStateEnabled = false;
 
-    var iosDevice = ((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i))) ? true : false;
-    iosDevice = true;
+  var iosDevice = ((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i))) ? true : false;
+  iosDevice = true;
 
-    $.extend($.mobile, {
-      slideText :  (iosDevice) ? "slide" : "none",
-      slideUpText :  (iosDevice) ? "slideup" : "none",
-      defaultPageTransition:(iosDevice) ? "slide" : "none",
-      defaultDialogTransition:(iosDevice) ? "slideup" : "none"
-    });
+  $.extend($.mobile, {
+    slideText :  (iosDevice) ? "slide" : "none",
+    slideUpText :  (iosDevice) ? "slideup" : "none",
+    defaultPageTransition:(iosDevice) ? "slide" : "none",
+    defaultDialogTransition:(iosDevice) ? "slideup" : "none"
+  });
 
-    // Remove page from DOM when it's being replaced
-    $('div[data-role="page"]').live('pagehide', function (event, ui) {
-        $(event.currentTarget).remove();
-    });
+  // Remove page from DOM when it's being replaced
+  $('div[data-role="page"]').live('pagehide', function (event, ui) {
+      $(event.currentTarget).remove();
+  });
 });
