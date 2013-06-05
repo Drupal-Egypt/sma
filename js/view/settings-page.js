@@ -9,16 +9,23 @@ var SettingsPageView = Backbone.View.extend({
 
   render: function (eventName) {
     $(this.el).html(this.template(appConfig));
-    this.server_url = $("#server-url", this.el);
+    this.base_url = $("#base-url", this.el);
+    this.add_url = $("#add-url", this.el);
     return this;
   },
 
   saveSettings: function() {
-    if (!this.server_url.val()) {
+    if (!this.base_url.val()) {
       return false;
     }
 
-    appConfig.serverURL = this.server_url.val();
+    if (!this.add_url.val()) {
+      return false;
+    }
+
+    appConfig.baseURL = this.base_url.val();
+    appConfig.addURL = this.add_url.val();
+
     window.history.back();
     return true;
   }
