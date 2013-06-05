@@ -2,7 +2,7 @@ var Post = Backbone.Model.extend({
   defaults: {
     title: "",
     body: "",
-    created: "",
+    created: new Date().toString(),
   },
 
   url: function() {
