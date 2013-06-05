@@ -1,6 +1,8 @@
 var PostListItemView = Backbone.View.extend({
   tagName: "li",
 
+  className: 'ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-btn-up-c',
+
   initialize: function() {
     this.template = $.tpl['post-list-item'];
     this.model.bind('change', this.render, this);

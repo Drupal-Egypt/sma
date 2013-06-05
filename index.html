@@ -161,10 +161,14 @@
   </script>
 
   <script type="text/html" class="template" id="post-list-item">
-    <a href="#post/details/<%= id %>">
-    <%= title %><br>
-    <small><%= created %></small>
-    </a>
+    <div class="ui-btn-inner ui-li">
+      <div class="ui-btn-text">
+        <a class="ui-link-inherit" href="#post/details/<%= id %>">
+          <%= title %>
+          <br><small><%= created %></small>
+        </a>
+      </div>
+    </div>
   </script>
 
   <script type="text/html" class="template" id="post-list-page">
