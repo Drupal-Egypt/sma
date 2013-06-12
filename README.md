@@ -1,7 +1,7 @@
 Social Mobile App
 =================
 
-Social Mobile App is an example application created by [Vadim Mirgorod](http://vmirgorod.name) to demonstrate Backbone.js and jQueryMobile capabilities, it communicates with RESTful service written on Python. You can download recent version of both client and server side from [github](http://github.com/dealancer/sma) project page</a>. Inspired by [Christophe Coenraets](http://coenraets.org/blog/) blog.
+Social Mobile App is an example application created by [Vadim Mirgorod](http://vmirgorod.name) to demonstrate Backbone.js and jQueryMobile capabilities, it communicates with [MongoLab](http://mongolab.com/), the RESTful MongoDB service. You can download client application from [github project page](http://github.com/dealancer/sma). Inspired by [Christophe Coenraets](http://coenraets.org/blog/) blog.
 
 Technology stack
 ================
