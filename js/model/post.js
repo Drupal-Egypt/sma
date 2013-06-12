@@ -6,7 +6,6 @@ var Post = Backbone.Model.extend({
   },
 
   url: function() {
-    console.log(_.clone(this.attributes));
     if (_.isUndefined(this.attributes.id)) {
       return appConfig.baseURL + 'posts' + appConfig.addURL;
     }
