@@ -1,21 +1,24 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<widget xmlns		= "http://www.w3.org/ns/widgets"
-	xmlns:gap	= "http://phonegap.com/ns/1.0"
-	id		= "com.phonegap.sma"
-	version 	= "1.6.7">
+<?xml version="1.0" encoding="UTF-8" ?>
+    <widget xmlns = "http://www.w3.org/ns/widgets"
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+        id        = "com.phonegap.example"
+        versionCode="1"
+        version   = "0.0.2">
 
-	<name>Social Mobile App</name>
+    <!-- versionCode is optional and Android only -->
 
-	<description>
-		An example application to demonstrate Backbone.js and jQueryMobile capabilities.
-	</description>
+    <name>Social Mobile App</name>
 
-	<author href="http://vmirgorod.name"
-		email="dealancer@gmail.com">
-		Vadim Mirgorod
-	</author>
+    <description>
+        An example application to demonstrate Backbone.js and jQueryMobile capabilities.
+    </description>
 
-	<icon src="icon.png" gap:role="default" />
+    <author href="http://vmirgorod.name"
+        email="dealancer@gmail.com">
+        Vadim Mirgorod
+    </author>
 
-	<preference name="orientation" value="portrait" />
+    <icon src="icon.png" gap:role="default" />
+
+    <preference name="orientation" value="portrait" />
 </widget>
