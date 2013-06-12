@@ -4,8 +4,9 @@
         id        = "com.phonegap.example"
         versionCode="1"
         version   = "0.0.2">
-
     <!-- versionCode is optional and Android only -->
+
+    <preference name="phonegap-version" value="2.7.0" />
 
     <name>Social Mobile App</name>
 
