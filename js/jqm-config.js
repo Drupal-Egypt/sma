@@ -10,7 +10,7 @@ $(document).bind("mobileinit", function () {
   $.extend($.mobile, {
     slideText: "slide",
     slideUpText: "slideup",
-    defaultPageTransition: "slideup",
+    defaultPageTransition: "slide",
     defaultDialogTransition: "slideup"
   });
 
