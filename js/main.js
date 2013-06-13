@@ -45,8 +45,11 @@ var Workspace = Backbone.Router.extend({
 
   changePage: function (page) {
     $(page.el).attr('data-role', 'page');
+
     page.render();
+
     $('body').append($(page.el));
+
     $.mobile.changePage($(page.el), {
       changeHash: false,
       transition: this.historyCount++ ? $.mobile.defaultPageTransition : 'none',
@@ -55,8 +58,11 @@ var Workspace = Backbone.Router.extend({
 
   showDialog: function(page) {
     $(page.el).attr('data-role', 'dialog');
+
     page.render();
+
     $('body').append($(page.el));
+
     $.mobile.changePage($(page.el), {
       allowSamePageTransition: true,
       reverse: false,

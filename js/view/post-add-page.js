@@ -24,7 +24,7 @@ var PostAddPageView = Backbone.View.extend({
       body: this.body.val(),
     });
 
-      post.save({}, {success: function() {
+    post.save({}, {success: function() {
       window.workspace.navigate('#post/list', { trigger: true });
       return true;
     }});
