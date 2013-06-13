@@ -14,7 +14,9 @@ var PostDeleteDialogView = Backbone.View.extend({
   },
 
   deletePost: function() {
-    this.model.destroy();
+    this.model.destroy({success: function() {
+      window.workspace.navigate('#post/list', { trigger: true });
+    }});
   },
 
   cancel: function() {

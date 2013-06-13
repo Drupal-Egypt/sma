@@ -20,8 +20,10 @@
   <!-- Config -->
   <script src="js/app-config.js"></script>
 
-  <!-- SMA -->
+  <!-- Template loader -->
   <script src="js/template-loader.js"></script>
+
+  <!-- SMA models and views -->
   <script src="js/model/post.js"></script>
   <script src="js/view/post-list-page.js"></script>
   <script src="js/view/post-add-page.js"></script>
@@ -31,9 +33,10 @@
   <script src="js/view/settings-page.js"></script>
   <script src="js/view/about-page.js"></script>
 
+  <!-- SMA main file and router -->
   <script src="js/main.js"></script>
 
-    <!-- Templates. -->
+  <!-- Templates. -->
   <script type="text/html" class="template" id="about-page">
     <div data-role="header">
       <h1>About</h1>
@@ -115,7 +118,7 @@
         <textarea name="post-body" id="post-body" placeholder="Body"/></textarea>
       </div>
 
-      <a href="#post/list" name="add-post" id="add-post" data-role="button">Add Post</a>
+      <a name="add-post" id="add-post" data-role="button">Add Post</a>
     </div>
 
     <div data-role="footer" data-position="fixed">
@@ -131,7 +134,7 @@
 
   <script type="text/html" class="template" id="post-delete-dialog">
     <div data-role="content">
-      <a id="delete-post" href="#post/list" data-role="button" data-theme="e">Delete Post</a>
+      <a id="delete-post" data-role="button" data-theme="e">Delete Post</a>
       <a id="cancel" data-role="button" data-theme="b">Cancel</a>
     </div>
   </script>

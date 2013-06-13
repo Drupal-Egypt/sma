@@ -1,4 +1,4 @@
-var AppRouter = Backbone.Router.extend({
+var Workspace = Backbone.Router.extend({
   routes: {
     "": "main",
     "post/list": "postList",
@@ -15,10 +15,8 @@ var AppRouter = Backbone.Router.extend({
 
   postList: function() {
     var postList = new PostList();
-    this.changePage(new PostListPageView({model: postList}));
-    postList.fetch({
-      success: function(colleciton) {}
-    });
+    this.changePage(new PostListPageView({collection: postList}));
+    postList.fetch();
   },
 
   postAdd: function() {
@@ -72,6 +70,6 @@ var AppRouter = Backbone.Router.extend({
 });
 
 $(document).ready(function () {
-  app = new AppRouter();
+  window.workspace = new Workspace();
   Backbone.history.start();
 });
