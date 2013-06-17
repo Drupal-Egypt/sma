@@ -1,25 +1,31 @@
-var PostDeleteDialogView = Backbone.View.extend({
-  events: {
-    "click #delete-post": "deletePost",
-    "click #cancel": "cancel",
-  },
+// Filename: post-delete-dialog.js
 
-  initialize: function () {
-    this.template = $.tpl['post-delete-dialog'];
-  },
+define(['jquery', 'backbone', 'template-loader'],
+  function($, Backbone, tpl) {
+    return Backbone.View.extend({
+      events: {
+        "click #delete-post": "deletePost",
+        "click #cancel": "cancel",
+      },
 
-  render: function (eventName) {
-    $(this.el).html(this.template(this.model.toJSON()));
-    return this;
-  },
+      initialize: function () {
+        this.template = tpl['post-delete-dialog'];
+      },
 
-  deletePost: function() {
-    this.model.destroy({success: function() {
-      window.workspace.navigate('#post/list', { trigger: true });
-    }});
-  },
+      render: function (eventName) {
+        $(this.el).html(this.template(this.model.toJSON()));
+        return this;
+      },
 
-  cancel: function() {
-    window.history.back();
+      deletePost: function() {
+        this.model.destroy({success: function() {
+          window.router.navigate('#post/list', { trigger: true });
+        }});
+      },
+
+      cancel: function() {
+        window.history.back();
+      }
+    });
   }
-});
+);

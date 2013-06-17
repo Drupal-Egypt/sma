@@ -1,21 +1,29 @@
-$(document).bind("mobileinit", function () {
+// Filename: jqm-config.js
 
-  // Disable jQueryMobile routing.
-  $.mobile.ajaxEnabled = false;
-  $.mobile.linkBindingEnabled = false;
-  $.mobile.hashListeningEnabled = false;
-  $.mobile.pushStateEnabled = false;
+define(['jquery'],
+function($) {
 
-  // Setup transitions and effects.
-  $.extend($.mobile, {
-    slideText: "slide",
-    slideUpText: "slideup",
-    defaultPageTransition: "slide",
-    defaultDialogTransition: "slideup"
-  });
+  $(document).on("mobileinit", function () {
 
-  // Remove page from the DOM when it's being replaced
-  $('div[data-role="page"]').live('pagehide', function (event, ui) {
+    // Disable jQueryMobile routing.
+    $.mobile.ajaxEnabled = false;
+    $.mobile.linkBindingEnabled = false;
+    $.mobile.hashListeningEnabled = false;
+    $.mobile.pushStateEnabled = false;
+    //$.mobile.changePage.defaults.changeHash = false;
+
+    // Setup transitions and effects.
+    $.extend($.mobile, {
+      slideText: "slide",
+      slideUpText: "slideup",
+      defaultPageTransition: "slide",
+      defaultDialogTransition: "slideup"
+    });
+
+    // Remove page from the DOM when it's being replaced
+    $('div[data-role="page"]').live('pagehide', function (event, ui) {
       $(event.currentTarget).remove();
+    });
   });
+
 });

@@ -1,10 +1,16 @@
-var MainPageView = Backbone.View.extend({
-  initialize: function () {
-    this.template = $.tpl['main-page'];
-  },
+// Filename: main-page.js
 
-  render: function (eventName) {
-    $(this.el).html(this.template());
-    return this;
-  },
-});
+define(['jquery', 'backbone', 'template-loader'],
+  function($, Backbone, tpl) {
+    return Backbone.View.extend({
+      initialize: function () {
+        this.template = tpl['main-page'];
+      },
+
+      render: function (eventName) {
+        $(this.el).html(this.template());
+        return this;
+      },
+    });
+  }
+);
