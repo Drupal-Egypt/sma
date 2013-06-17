@@ -48,8 +48,8 @@ require.config({
 // Start the main app logic.
 requirejs([ 'app-config', 'router' ],
 function (appConfig, Router) {
-
-  window.router = new Router();
-  Backbone.history.start({ pushState : false });
-
+  $(document).ready(function () {
+    window.router = new Router();
+    Backbone.history.start({ pushState : false });
+  });
 });

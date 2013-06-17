@@ -1,0 +1,1 @@
+define(["jquery","underscore"],function(e,t){var n={};return e("script.template").each(function(r){n[e(this).attr("id")]=t.template(e(this).html()),e(this).remove()}),n});
