@@ -1,7 +1,7 @@
 // Filename: post-add-page.js
 
-define(['jquery', 'backbone', 'template-loader'],
-function($, Backbone, tpl) {
+define(['jquery', 'backbone', 'template-loader', '../model/post'],
+function($, Backbone, tpl, PostModel) {
 
   return Backbone.View.extend({
     events: {

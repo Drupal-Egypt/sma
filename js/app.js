@@ -50,6 +50,6 @@ requirejs([ 'app-config', 'router' ],
 function (appConfig, Router) {
 
   window.router = new Router();
-  Backbone.history.start();
+  Backbone.history.start({ pushState : false });
 
 });
