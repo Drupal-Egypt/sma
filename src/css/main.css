@@ -1,9 +1,15 @@
+@import url("../lib/jquery.mobile/jquery.mobile-1.1.0.min.css");
+@import url("../lib/ios_inspired/styles.css");
+
+// Custom styles
 #list-button span.ui-icon-custom {
   background: url(../lib/glyphish/152-rolodex.png) 0 0 no-repeat;
 }
+
 #add-button span.ui-icon-custom {
   background: url(../lib/glyphish/187-pencil.png) 0 0 no-repeat;
 }
+
 #settings-button span.ui-icon-custom {
   background: url(../lib/glyphish/20-gear2.png) 0 0 no-repeat;
 }

@@ -1,7 +1,9 @@
 
-css/styles.css
+css/main.css
 ----------------
-css/styles.css
+css/../lib/jquery.mobile/jquery.mobile-1.1.0.min.css
+css/../lib/ios_inspired/styles.css
+css/main.css
 
 lib/ios_inspired/styles.css
 ----------------
