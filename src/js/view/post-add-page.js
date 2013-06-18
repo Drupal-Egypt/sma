@@ -30,7 +30,8 @@ function($, Backbone, tpl, PostModel) {
       });
 
       post.save({}, {success: function() {
-        window.router.navigate('#post/list', { trigger: true });
+        Backbone.history.navigate('#post/list', { trigger: true });
+
         return true;
       }});
 

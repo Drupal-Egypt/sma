@@ -1,4 +1,4 @@
-// Filename: workspace.js
+// Filename: router.js
 
 define([
   'jquery',

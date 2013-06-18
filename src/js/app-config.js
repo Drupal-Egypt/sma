@@ -1,6 +1,6 @@
 // Filename: app-config.js
 
-define(['jquery', 'backbone', 'backbone-mongodb'],
+define(['jquery', 'backbone'],
   function($, Backbone) {
 
     // Enable cross site scripting.

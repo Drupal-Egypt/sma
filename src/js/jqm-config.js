@@ -1,7 +1,7 @@
 // Filename: jqm-config.js
 
-define(['jquery'],
-function($) {
+define(['jquery', 'backbone'],
+function($, Backbone) {
 
   $(document).on("mobileinit", function () {
 
@@ -42,8 +42,6 @@ function($) {
             // `Backbone.history.navigate` is sufficient for all Routers and will
             // trigger the correct events. The Router's internal `navigate` method
             // calls this anyways.
-            //window.router.navigate('#post/list', { trigger: true });
-
             Backbone.history.navigate(href, {trigger: true});
           }
       });

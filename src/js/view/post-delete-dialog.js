@@ -19,7 +19,7 @@ define(['jquery', 'backbone', 'template-loader'],
 
       deletePost: function() {
         this.model.destroy({success: function() {
-          window.router.navigate('#post/list', { trigger: true });
+          Backbone.history.navigate('#post/list', { trigger: true });
         }});
       },
 
