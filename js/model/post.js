@@ -2,7 +2,7 @@ var Post = Backbone.Model.extend({
   defaults: {
     title: "",
     body: "",
-    //created: new Date().toString(),
+    status: 1,
     _links: {
       type: {
         href: "http://localhost/drupal-rest/rest/type/node/article"
