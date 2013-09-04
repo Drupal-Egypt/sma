@@ -1,22 +1,19 @@
 Social Mobile App
 =================
 
-Social Mobile App is an example application created by [Vadim Mirgorod](http://vmirgorod.name) to demonstrate Backbone.js and jQueryMobile capabilities, it communicates with [MongoLab](http://mongolab.com/), the RESTful MongoDB service. You can download client application from [github project page](http://github.com/dealancer/sma). Inspired by [Christophe Coenraets](http://coenraets.org/blog/) blog.
+Social Mobile App is an example application created by [Vadim Mirgorod](http://vmirgorod.name) to demonstrate Backbone.js and jQueryMobile capabilities, it communicates with RESTful service written on Python. You can download recent version of both client and server side from [github](http://github.com/dealancer/sma) project page</a>. Inspired by [Christophe Coenraets](http://coenraets.org/blog/) blog.
 
-Resources
-=========
-* [Download checklist.js](https://raw.github.com/dealancer/checklist.js/master/js/checklist.js)
-* [See the demo](http://dealancer.github.io/checklist.js)
+Technology stack
+================
 
+Client side
+-----------
+*  [Backbone.js](http://documentcloud.github.com/backbone/)
+*  [jQuqeryMobile](http://jquerymobile.com/)
+*  [iOS inpisred](http://taitems.tumblr.com/post/7240874402/ios-inspired-jquery-mobile-theme-jquery-mobile) jQUery Mobile Theme
+*  [Glyphish](http://glyphish.com/) icons by Joseph Wain
+*  [PhoneGap](http://phonegap.com/)
 
-Dependencies
-============
-
-* [Backbone.js](http://backbonejs.org/)
-* [Underscore.js](http://underscorejs.org/)
-* [Backbone.localStorage](https://github.com/jeromegn/Backbone.localStorage)
-* [jQuery](http://jquery.com/)
-
-Usage
-=====
-
+Server side
+-----------
+*  [MongoLab](http://mongolab.com/), RESTful MongoDB service
