@@ -6,7 +6,7 @@ Social Mobile App is an example application created by [Vadim Mirgorod](http://v
 Resources
 =========
 * [Download checklist.js](https://raw.github.com/dealancer/checklist.js/master/js/checklist.js)
-* [See the demo](http://dealancer.github.io/sma/)
+* [See the demo](http://dealancer.github.io/checklist.js)
 
 
 Dependencies
