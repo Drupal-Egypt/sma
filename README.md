@@ -5,21 +5,18 @@ Social Mobile App is an example application created by [Vadim Mirgorod](http://v
 
 Resources
 =========
-*  [Live demo](http://dealancer.github.io/sma/)
-*  [Blog post](http://www.vmirgorod.name/blog/building-iosandroid-mobile-app-using-backbonejs-jquerymobile-and-html)
+* [Download checklist.js](https://raw.github.com/dealancer/checklist.js/master/js/checklist.js)
+* [See the demo](http://dealancer.github.io/sma/)
 
-Technology stack
-================
 
-Client side
------------
-*  [Backbone.js](http://documentcloud.github.com/backbone/)
-*  [backbone-mongodb](http://github.com/dealancer/backbone-mongodb/) - an extension that provides MongoDB compatible models
-*  [jQuqeryMobile](http://jquerymobile.com/)
-*  [iOS inpisred](http://taitems.tumblr.com/post/7240874402/ios-inspired-jquery-mobile-theme-jquery-mobile) jQUery Mobile Theme
-*  [Glyphish](http://glyphish.com/) icons by Joseph Wain
-*  [PhoneGap](http://phonegap.com/) - allows to build mobile app from HTML/CSS/JS
+Dependencies
+============
 
-Server side
------------
-*  [MongoLab](http://mongolab.com/), RESTful MongoDB service
+* [Backbone.js](http://backbonejs.org/)
+* [Underscore.js](http://underscorejs.org/)
+* [Backbone.localStorage](https://github.com/jeromegn/Backbone.localStorage)
+* [jQuery](http://jquery.com/)
+
+Usage
+=====
+
