@@ -5,7 +5,7 @@ var Post = Backbone.Model.extend({
     status: 1,
     _links: {
       type: {
-        href: "http://localhost/drupal-rest/rest/type/node/article"
+        href: appConfig.baseURL + "rest/type/node/article"
       }
     }
   },
